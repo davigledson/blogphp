@@ -8,7 +8,21 @@
 </head>
 <body>
     <?php 
-    echo ' arquivo de funções'
+    echo ' arquivo de funções';
+
+    function saudacao()
+    {
+        return 'Olá, Sou uma função';
+    }
+
+    function resumirTexto()
+    {
+        return 'texto resumido';
+    }
+
+
     ?>
+
+   
 </body>
 </html>

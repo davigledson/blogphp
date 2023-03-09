@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blog PHP</title>
 </head>
 <body>
     <?php 
@@ -25,9 +25,13 @@
 
 */
     require_once 'sistema/configuracao.php';
-    include_once 'Helpers.php'; // não diferencia minusculas ou maiúsculas
-    echo '<h1>arquivo index'
-
+    include_once 'helpers.php'; // não diferencia minusculas ou maiúsculas
+    echo '<h1>arquivo index</h1>';
+    echo saudacao();
+    echo '<hr>';
+    echo saudacao();
+    echo '<hr>';
+    echo resumirTexto();
 ?>
 </body>
 </html>
