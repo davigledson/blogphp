@@ -15,9 +15,9 @@
         return 'Olá, Sou uma função';
     }
 
-    function resumirTexto()
+    function resumirTexto($texto, $limite, $continue ='...') //variável /parâmetro / argumento
     {
-        return 'texto resumido';
+        return $texto . $limite . $continue;
     }
 
 

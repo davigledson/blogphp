@@ -24,6 +24,9 @@
  - informações não fundamentais tipo o topo pou rodapé, usa-se o include
 
 */
+
+    $texto ='texto para resumir';
+
     require_once 'sistema/configuracao.php';
     include_once 'helpers.php'; // não diferencia minusculas ou maiúsculas
     echo '<h1>arquivo index</h1>';
@@ -31,7 +34,7 @@
     echo '<hr>';
     echo saudacao();
     echo '<hr>';
-    echo resumirTexto();
+    echo resumirTexto($texto,'50','abcdeg');
 ?>
 </body>
 </html>
