@@ -10,12 +10,12 @@
     <?php 
     echo ' arquivo de funções';
 
-    function saudacao()
+    function saudacao():string // retorna o tipo de dado em retorno em string
     {
         return 'Olá, Sou uma função';
     }
 
-    function resumirTexto($texto, $limite, $continue ='...') //variável /parâmetro / argumento
+    function resumirTexto(string $texto, float $limite, string $continue ='...'/*variável /parâmetro / argumento*/):string 
     {
         return $texto . $limite . $continue;
     }

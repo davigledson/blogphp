@@ -25,16 +25,40 @@
 
 */
 
-    $texto ='texto para resumir';
 
+
+
+    
+    
     require_once 'sistema/configuracao.php';
     include_once 'helpers.php'; // não diferencia minusculas ou maiúsculas
     echo '<h1>arquivo index</h1>';
-    echo saudacao();
     echo '<hr>';
     echo saudacao();
     echo '<hr>';
-    echo resumirTexto($texto,'50','abcdeg');
+    echo saudacao();
+    echo '<hr>';
+
+    $texto ='texto para resumir';
+    //declare(strict_types = 1); 
+    //declare(strict_types = 1) - faz com que todos os tipos de dados requisitados tenham que especificamente eles mesmo. exemplo o 50 abaixo, que na função requisita um tipo float
+    echo resumirTexto($texto,'50','abcdeghi');
+
+    /*
+Curso de PHP 8 Aula 017 Tipos de Dados e Retorno
+*/ 
+echo '<hr>';
+$string = 'texto';
+$int = 10;
+$float = 9.99;
+$bool = true;
+$nulo = null;
+
+var_dump($string); echo '<hr>';
+var_dump($int); echo '<hr>';
+var_dump($float); echo '<hr>';
+var_dump($bool); echo '<hr>';
+var_dump($nulo); echo '<hr>';
 ?>
 </body>
 </html>
