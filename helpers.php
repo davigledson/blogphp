@@ -11,8 +11,19 @@
     echo ' arquivo de funções';
 
     function saudacao():string // retorna o tipo de dado em retorno em string
+    
     {
-        return 'Olá, Sou uma função';
+        $hora = 12;
+        $saudacao =''; // caso a condição der errado, ira retorna um vazio
+        if($hora >= 0 && $hora <= 5){ // && = and
+            $saudacao ='boa madrugada';
+        } 
+
+        if($hora >= 6 && $hora <= 12){ // && = and
+            $saudacao ='bom dia';
+        } 
+
+        return $saudacao;
     }
 
     function resumirTexto(string $texto, float $limite, string $continue ='...'/*variável /parâmetro / argumento*/):string 
