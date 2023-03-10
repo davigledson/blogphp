@@ -59,6 +59,9 @@ var_dump($int); echo '<hr>';
 var_dump($float); echo '<hr>';
 var_dump($bool); echo '<hr>';
 var_dump($nulo); echo '<hr>';
+
+
+echo saudacao();
 ?>
 </body>
 </html>
