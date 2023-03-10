@@ -14,8 +14,8 @@
 
     function saudacao(): string // retorna o tipo de dado em retorno em string
 
-    {
-        $hora = 13;
+    {   date_default_timezone_set('America/Sao_Paulo'); // e preciso setar o timezone antes para a função "date"  pega o horário direito
+        $hora = date('h');
         //$saudacao =''; // caso a condição der errado, ira retorna um valor vazio
         if ($hora >= 0 and $hora <= 5) { // && pode ser and ou AND tbm
             $saudacao = 'boa madrugada';
@@ -31,7 +31,8 @@
         //     $saudacao ='bom dia';
         // } 
 
-        return $saudacao;
+        return "$hora Hora, $saudacao.";
+        
     }
 
     function resumirTexto(string $texto, float $limite, string $continue = '...'/*variável /parâmetro / argumento*/): string
