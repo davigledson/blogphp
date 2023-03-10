@@ -88,6 +88,12 @@ echo $ecorrencia = mb_strrpos($total,'d');
 
 echo '<hr>';
 echo resumirTexto($total, 20);
+echo '<hr>';
+//Curso de PHP 8 Aula 022 Limpando TAGS
+$texto2 = '<h1>Texto</h1> <p>para</p> resumir';
+echo $texto2;
+echo '<hr>';
+echo strip_tags($texto2) // strip_tags() - limpa as tag
 ?>
 </body>
 </html>

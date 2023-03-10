@@ -37,12 +37,12 @@
 
     function resumirTexto(string $texto, float $limite, string $continue = '...'/*variável /parâmetro / argumento*/): string
     {   
-        $textoLimpo = trim($texto);
+        $textoLimpo = trim(strip_tags($texto));
 
         if(mb_strlen($textoLimpo) <= $limite){
             return $textoLimpo;
         }
-
+        // strip_tags() - Retirar tags HTML e PHP de uma string
         //mb_substr() - permite corta os caracteres das string
         //mb_strlen() - conta os caracteres das strings
         //mb_strrpos() - permite encontrar a ultima ocorrência de um caractere ou texto  - em caso de não encontrado retorna um vazio
