@@ -36,8 +36,25 @@
     }
 
     function resumirTexto(string $texto, float $limite, string $continue = '...'/*variável /parâmetro / argumento*/): string
-    {
-        return $texto . $limite . $continue;
+    {   
+        $textoLimpo = trim($texto);
+
+        if(mb_strlen($textoLimpo) <= $limite){
+            return $textoLimpo;
+        }
+
+        //mb_substr() - permite corta os caracteres das string
+        //mb_strlen() - conta os caracteres das strings
+        //mb_strrpos() - permite encontrar a ultima ocorrência de um caractere ou texto  - em caso de não encontrado retorna um vazio
+
+        $resumirTexto = mb_substr($textoLimpo, 0, $limite); // jeito mais simples que eu pensei
+        
+        /*
+        $resumirTexto = mb_substr($textoLimpo, 0, mb_strrpos(mb_substr($textoLimpo, 0, $limite),''));
+        - Jeito do professor de fazer
+        - aula sobre funções dentro de funções 
+        */
+        return $resumirTexto . $continue;
     }
 
 

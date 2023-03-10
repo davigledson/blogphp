@@ -42,11 +42,13 @@
     $texto ='texto para resumir';
     //declare(strict_types = 1); 
     //declare(strict_types = 1) - faz com que todos os tipos de dados requisitados tenham que especificamente eles mesmo. exemplo o 50 abaixo, que na função requisita um tipo float
-    echo resumirTexto($texto,'50','abcdeghi');
+    echo resumirTexto($texto,50,'texto');
 
     /*
 Curso de PHP 8 Aula 017 Tipos de Dados e Retorno
 */ 
+/*
+
 echo '<hr>';
 $string = 'texto';
 $int = 10;
@@ -59,9 +61,33 @@ var_dump($int); echo '<hr>';
 var_dump($float); echo '<hr>';
 var_dump($bool); echo '<hr>';
 var_dump($nulo); echo '<hr>';
+*/
 
+//Curso de PHP 8 Aula 021 Funções dentro de Funções
 
+echo '<hr>';
 echo saudacao();
+echo '<hr>';
+
+
+$total = 'davi gledson da silva benedito';
+
+echo mb_strlen(trim($texto)); 
+//mb_strlen() - conta os caracteres das strings
+//trim() retirar os espaços antes de depois da string
+echo '<hr>';
+echo $total2 = mb_strlen(trim($total));
+
+echo '<hr>';
+echo $resumo = mb_substr($total,7,20);
+//mb_substr() - permite corta os caracteres das string
+
+echo '<hr>';
+echo $ecorrencia = mb_strrpos($total,'d');
+//mb_strrpos() - permite encontrar a ultima ocorrência de um caractere ou texto  - em caso de não encontrado retorna um vazio
+
+echo '<hr>';
+echo resumirTexto($total, 20);
 ?>
 </body>
 </html>
