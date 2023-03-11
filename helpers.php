@@ -10,6 +10,7 @@
 
 <body>
     <?php
+
     echo ' arquivo de funções';
 
     function saudacao(): string // retorna o tipo de dado em retorno em string
@@ -47,7 +48,8 @@
     {
         $textoLimpo = trim(strip_tags($texto));
 
-        if (mb_strlen($textoLimpo) <= $limite) {
+        if (mb_strlen($textoLimpo) <= $limite)
+         {
             return $textoLimpo;
         }
         // strip_tags() - Retirar tags HTML e PHP de uma string
@@ -90,18 +92,23 @@
 
     function separadorLinha(string $titulo = null)
     {
-        echo "<strong>$titulo</strong><hr>";
+        if ($titulo != null) {
+            echo "<hr> <strong>$titulo</strong> <hr> ";
+
+        } else
+
+            echo '<hr>';
     }
 
-/**
- * Conta o tempo decorrido de uma data
- * @param string $data
- * @return string 
- */
+    /**
+     * Conta o tempo decorrido de uma data
+     * @param string $data
+     * @return string 
+     */
     function contarTempo(string $data): string
     {
         $agora = strtotime(date('Y-m-d H:i:s')); //date em formato americano
-        separadorLinha();
+
         $tempo = strtotime($data); // strtotime() - converte qualquer descrição de data e hora textual em inglês o tempo para segundos
         $diferenca = $agora - $tempo;
 
@@ -128,6 +135,16 @@
         } else {
             return $anos == 1 ? 'há 1 ano' : 'há ' . $anos . ' anos';
         }
+    }
+
+    //Curso de PHP 8 Aula 029 Tipos de Filtros
+    function validarEmail(string $email): bool
+    {
+        return filter_var($email, FILTER_VALIDATE_EMAIL); //FILTER_VALIDATE_EMAIL - função interna para validar email
+    }
+    function validarUrl(string $url): bool
+    {
+        return filter_var($url, FILTER_VALIDATE_URL); //filter_var - filtro na variável, por isso filter_var
     }
     ?>
 

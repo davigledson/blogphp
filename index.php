@@ -124,9 +124,29 @@ $data = date('d/m/Y H:i:s');
 echo $data;
 
 //Curso de PHP 8 Aula 028 Criando Função Contar Tempo
-separadorLinha();
+
 separadorLinha('Função Contar Tempo');
 echo contarTempo('2020-01-10 02:23:59'); //padrão americano
+//Curso de PHP 8 Aula 029 Tipos de Filtros
+
+separadorLinha('Função validar email');
+if( validarEmail('davigledson@outlook.com')){
+    echo 'endereço de email válido';
+} else{
+    echo 'E-mail inválido';
+}
+//modo de ver o tipo bool - echo var_dump(validarEmail('davigledson@outlook.com')); 
+separadorLinha('função validar url');
+
+var_dump(validarUrl('https://www.youtube.com/watch?v=iTXf4cS4upk'));
+separadorLinha();
+if (validarUrl('https://www.youtube.com/watch?v=iTXf4cS4upk')){
+    echo 'endereço valido';
+} else {
+    echo 'endereço invalido';
+}
+
+
 ?>
 </body>
 </html>
