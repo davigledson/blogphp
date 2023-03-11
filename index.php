@@ -121,8 +121,12 @@ separadorLinha();
 //Curso de PHP 8 Aula 027 Definindo Fuso Horário Padrão
 
 $data = date('d/m/Y H:i:s');
-
 echo $data;
+
+//Curso de PHP 8 Aula 028 Criando Função Contar Tempo
+separadorLinha();
+separadorLinha('Função Contar Tempo');
+echo contarTempo('2020-01-10 02:23:59'); //padrão americano
 ?>
 </body>
 </html>
