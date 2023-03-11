@@ -35,7 +35,15 @@
         
     }
 
-    function resumirTexto(string $texto, float $limite, string $continue = '...'/*variável /parâmetro / argumento*/): string
+    
+    /**
+     *    Resume um texto
+     *      @param string $texto texto para resumir
+     *      @param int $limite quantidade limite de caracteres
+     *      @param string $continue opcional - o que deve ser exibido ao final do resumo
+     *      @return string texto resumido
+     */
+    function resumirTexto(string $texto, int $limite, string $continue = '...'/*variável /parâmetro / argumento*/): string
     {   
         $textoLimpo = trim(strip_tags($texto));
 
