@@ -93,7 +93,29 @@ echo '<hr>';
 $texto2 = '<h1>Texto</h1> <p>para</p> resumir';
 echo $texto2;
 echo '<hr>';
-echo strip_tags($texto2) // strip_tags() - limpa as tag
+echo strip_tags($texto2); // strip_tags() - limpa as tag
+
+echo '<hr>';
+
+//Curso de PHP 8 Aula 026 Operador Ternário
+$valor = 5;
+if ($valor){ // se o valor existir
+    echo $valor;
+} else {
+    echo 0;
+}
+
+echo '<hr>';
+echo $valor ? $valor : 0; //condicional ternaria (se o valor existir, recebe o valor, se não, o valor recebe zero)- parenteses opcionais - recomendada em condições simples
+
+echo '<hr>';
+echo $valor ?: 0; //resumindo ainda mais 
+echo '<hr>';
+separadorLinha();
+echo 'R$ ' . formatarValor(20);
+
+separadorLinha();
+echo formataNumero(10000);
 ?>
 </body>
 </html>
