@@ -48,8 +48,7 @@
     {
         $textoLimpo = trim(strip_tags($texto));
 
-        if (mb_strlen($textoLimpo) <= $limite)
-         {
+        if (mb_strlen($textoLimpo) <= $limite) {
             return $textoLimpo;
         }
         // strip_tags() - Retirar tags HTML e PHP de uma string
@@ -94,7 +93,6 @@
     {
         if ($titulo != null) {
             echo "<hr> <strong>$titulo</strong> <hr> ";
-
         } else
 
             echo '<hr>';
@@ -138,13 +136,43 @@
     }
 
     //Curso de PHP 8 Aula 029 Tipos de Filtros
+    /**
+     * Valida um endereço de e-mail
+     * @param string $email
+     * @return bool
+     */
     function validarEmail(string $email): bool
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL); //FILTER_VALIDATE_EMAIL - função interna para validar email
     }
+    /**
+     * Valida um url
+     * @param string $url
+     * @return bool
+     */
     function validarUrl(string $url): bool
     {
         return filter_var($url, FILTER_VALIDATE_URL); //filter_var - filtro na variável, por isso filter_var
+    }
+
+
+    //Curso de PHP 8 Aula 030 É Melhor Criar ou Utilizar um Filtro
+    // a função validarUrl a parti dessa aula se chamou validar url com filtro 
+    function validarUrlSemFiltro(string $url): bool
+    {
+        if (mb_strlen($url) < 10) {
+            return false;
+        }
+
+        if (!str_contains($url, '.')) { // ! -( não) conter o ponto
+            //str_contains() Verifica se $needle foi encontrado em $haystack e retorna um valor booleano (true/false) se $needle foi encontrado ou não.
+            return false;
+        }
+        if (str_contains($url, 'http://') or str_contains($url, 'https://')){
+            return true;
+        }
+
+         return false;
     }
     ?>
 

@@ -146,7 +146,13 @@ if (validarUrl('https://www.youtube.com/watch?v=iTXf4cS4upk')){
     echo 'endereço invalido';
 }
 
+//Curso de PHP 8 Aula 030 É Melhor Criar ou Utilizar um Filtro
+separadorLinha('Função validar URL sem filtro');
+$url = 'https://a';
 
+echo var_dump(validarUrlSemFiltro($url));
+separadorLinha();
+echo var_dump(validarUrl($url));
 ?>
 </body>
 </html>
