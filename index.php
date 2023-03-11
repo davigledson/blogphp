@@ -115,7 +115,14 @@ separadorLinha();
 echo 'R$ ' . formatarValor(20);
 
 separadorLinha();
-echo formataNumero(10000);
+echo formatarNumero(10000);
+separadorLinha();
+
+//Curso de PHP 8 Aula 027 Definindo Fuso Horário Padrão
+
+$data = date('d/m/Y H:i:s');
+
+echo $data;
 ?>
 </body>
 </html>

@@ -67,13 +67,22 @@
 
 
     //Curso de PHP 8 Aula 026 Operador Ternário
+    /**
+     * Formata um valor com ponto e virgula
+     * @param float $valor
+     * @return string
+     */
     function formatarValor(float $valor = null):string // o null atribuir o valor 0, caso o valor não exista
     {
         return number_format(($valor ? $valor : 0),2,',','.'); //number_format() - Formatar um número com milhares agrupados, pede o valor, a quantidade de casas flutuantes e os separadores
         //exemplo de função com operador ternário - essa mesma pode ser importante para banco de dados (um simples $valor = null, acho que resolveria - ainda não fiz a conexão com o banco de dados ainda)
     }
-
-    function formataNumero(int $numero = null):string{
+    /**
+     * Formata um numero com pontos
+     * @param int $numero
+     * @return string
+     */
+    function formatarNumero(int $numero = null):string{
             return number_format($numero,0,'.','.');
     }
 

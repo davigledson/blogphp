@@ -8,8 +8,9 @@
 </head>
 <body>
     <?php 
-    echo '<h1>Arquivo de configuração do sistema </h1>' // tag em aberto vai engolir o código de outros arquivos tbm
-    
+    echo '<h1>Arquivo de configuração do sistema </h1>'; // tag em aberto vai engolir o código de outros arquivos tbm
+    date_default_timezone_set('America/Sao_Paulo');
+
     ?>
 </body>
 </html>
