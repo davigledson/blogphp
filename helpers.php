@@ -17,16 +17,37 @@
 
     {
         date_default_timezone_set('America/Sao_Paulo'); // e preciso setar o timezone antes para a função "date"  pega o horário direito
-        $hora = date('h');
+        $hora = date('H');
         //$saudacao =''; // caso a condição der errado, ira retorna um valor vazio
+
+        /*
         if ($hora >= 0 and $hora <= 5) { // && pode ser and ou AND tbm
             $saudacao = 'boa madrugada';
-        } else if ($hora >= 6 and $hora <= 12) {
+        } elseif ($hora >= 6 and $hora <= 12) {
             $saudacao = 'bom dia';
         } elseif ($hora >= 13 and $hora <= 18) {
             $saudacao = 'boa tarde';
         } else {
             $saudacao = 'boa noite';
+        }
+        
+        */
+        //Curso de PHP 8 Aula 035 Estrutura de Controle Switch
+        //função refeita utilizando o Switch
+        switch($hora){ 
+            case $hora >= 0 and $hora <= 5:
+                $saudacao = 'boa madrugada';
+                break;
+            case $hora >= 6 and $hora <= 12;
+                $saudacao = 'bom dia';
+                break;
+            case $hora >= 13 and $hora <= 18;
+                $saudacao = 'boa tarde';
+                break;
+
+            default:
+                $saudacao = 'boa noite';
+            
         }
         // atalho = ALt + shift + f = para indentar o código
         // if($hora >= 6 && $hora <= 12){ // && = and

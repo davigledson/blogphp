@@ -210,6 +210,8 @@ echo slug("Sonic 2 - O Filme") . '<hr>';
 echo slug("NOVA SÉRIE NO DISNEY+!") . '<hr>';
 echo slug("100 Melhores filmes") . '<hr>';
 echo slug("teste!@##$%¨,*/\|?;:");
+separadorLinha('Curso de PHP 8 Aula 035 Estrutura de Controle Switch');
+echo saudacao();
 ?>
 </body>
 </html>
