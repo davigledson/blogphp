@@ -235,6 +235,27 @@
         return $dataFormatada;
     }
 
+    //Curso de PHP 8 Aula 034 Slug URL Amigável
+    function slug(string $string)
+    {   
+        $mapa['a'] ='ÀàÁáÃãÂâÇçÈèÉéÊêëÌìÍíÎîïÒòÓóÕõÔôÙùÚúÛû!@#$%&*()+={}[];:<>/\|,?¨ " \'';
+        $mapa['b'] = 'aaaaaaaacceeeeeeeiiiiiiioooooooouuuuuu                             ';
+       
+        $slug = strtr(mb_convert_encoding($string,'Windows-1252','UTF-8'),mb_convert_encoding($mapa['a'],'Windows-1252','UTF-8'),$mapa['b']); //strtr()Traduzir caracteres ou substituir substrings
+        
+        
+        //utf8_decode() e o encode foram descontinuados no PHP 8.2
+        // substituir pelo mb_convert_encoding da extensão mb_strings
+        $slug = strip_tags(trim($slug));
+        $slug = str_replace(' ','-',$slug); //Substitua todas as ocorrências da string de pesquisa pela string de substituição
+        $slug = str_replace(['-----','----','---','--','--','-'],'-',$slug);
+        return strtolower(mb_convert_encoding($slug,'Windows-1252','UTF-8'))  ;//strtolower - Tornar uma string minúscula
+        
+    }
+
+
+
+
     ?>
 
 

@@ -201,6 +201,15 @@ echo dataAtual();
 
 separadorLinha();
 echo saudacao() .' Hoje é '. dataAtual();
+
+separadorLinha('Curso de PHP 8 Aula 034 Slug URL Amigável');
+echo slug("Àdão          \" Negro\" - '2022'") . '<hr>';
+echo slug("Avatar                          2: O Caminho da Água") . '<hr>';
+echo slug("Não! Não Olhe") . '<hr>';
+echo slug("Sonic 2 - O Filme") . '<hr>';
+echo slug("NOVA SÉRIE NO DISNEY+!") . '<hr>';
+echo slug("100 Melhores filmes") . '<hr>';
+echo slug("teste!@##$%¨,*/\|?;:");
 ?>
 </body>
 </html>
