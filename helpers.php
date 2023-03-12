@@ -158,6 +158,11 @@
 
     //Curso de PHP 8 Aula 030 É Melhor Criar ou Utilizar um Filtro
     // a função validarUrl a parti dessa aula se chamou validar url com filtro 
+    /**
+     * Valida uma url sem precisar de filtro interno do php
+     * @param string $url
+     * @return bool
+     */
     function validarUrlSemFiltro(string $url): bool
     {
         if (mb_strlen($url) < 10) {
@@ -174,6 +179,31 @@
 
          return false;
     }
+
+//Curso de PHP 8 Aula 032 Informação do servidor e ambiente de execução
+
+    function localhost():bool{
+        $servidor = filter_input(INPUT_SERVER,'SERVER_NAME');//filter_input() - Obtém uma variável externa específica por nome e, opcionalmente, a filtra. - INPUT_SERVER para obter variáveis do servidor
+    
+        if($servidor == 'localhost'){
+            return true;
+        }
+
+        return false;
+    }
+
+    function url(string $url):string{
+        $servidor = filter_input(INPUT_SERVER,'SERVER_NAME');
+        $ambiente = ($servidor == 'localhost' ? URL_DESENVOLVIMENTO : URL_PRODUCAO);
+        //str_starts_with() - A função retorna {@see true} se o $haystack passado começa na string $needle ou {@see false} caso contrário.
+        if(str_starts_with($url,'/')){ // se começa com a barra, concatenara normalmente, se não, irar colocar a barra
+            return $ambiente . $url;
+        }
+        return $ambiente . '/' . $url;
+    }
+
+
+
     ?>
 
 

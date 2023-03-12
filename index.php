@@ -153,6 +153,20 @@ $url = 'https://a';
 echo var_dump(validarUrlSemFiltro($url));
 separadorLinha();
 echo var_dump(validarUrl($url));
+
+separadorLinha('Curso de PHP 8 Aula 031 Constantes');
+echo SITE_NOME;
+separadorLinha();
+echo SITE_NOME2;
+
+//Curso de PHP 8 Aula 032 Informação do servidor e ambiente de execução
+separadorLinha('Curso de PHP 8 Aula 032 Informação do servidor e ambiente de execução
+');
+//var_dump($_SERVER); - dados do servidor
+var_dump(localhost());
+separadorLinha();
+
+echo url('davi');
 ?>
 </body>
 </html>
