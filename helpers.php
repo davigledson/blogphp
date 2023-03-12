@@ -32,8 +32,10 @@
         }
         
         */
+
         //Curso de PHP 8 Aula 035 Estrutura de Controle Switch
         //função refeita utilizando o Switch
+        /*
         switch($hora){ 
             case $hora >= 0 and $hora <= 5:
                 $saudacao = 'boa madrugada';
@@ -49,6 +51,16 @@
                 $saudacao = 'boa noite';
             
         }
+        */
+        //Curso de PHP 8 Aula 036 Estrutura de Controle Match
+        // rescrevendo a função utilizando o match - lembra de utilizar ponto e virgula no final
+        $saudacao = match(true) {
+            $hora >= 0 and $hora <= 5 => 'boa madrugada',
+            $hora >= 6 and $hora <= 12 => 'bom dia',
+            $hora >= 13 and $hora <= 18 => 'boa tarde',
+            
+            default => 'boa noite'
+        };
         // atalho = ALt + shift + f = para indentar o código
         // if($hora >= 6 && $hora <= 12){ // && = and
         //     $saudacao ='bom dia';
@@ -60,6 +72,7 @@
 
     /**
      *    Resume um texto
+     * 
      *      @param string $texto texto para resumir
      *      @param int $limite quantidade limite de caracteres
      *      @param string $continue opcional - o que deve ser exibido ao final do resumo
