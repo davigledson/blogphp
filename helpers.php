@@ -33,7 +33,7 @@
         //     $saudacao ='bom dia';
         // } 
 
-        return "$hora Hora, $saudacao.";
+        return "$saudacao";
     }
 
 
@@ -191,7 +191,11 @@
 
         return false;
     }
-
+    /**
+     * Monta url de acordo com o ambiente
+     * @param string url parte da url ex .admin
+     * @return string url completa
+     */
     function url(string $url):string{
         $servidor = filter_input(INPUT_SERVER,'SERVER_NAME');
         $ambiente = ($servidor == 'localhost' ? URL_DESENVOLVIMENTO : URL_PRODUCAO);
@@ -202,7 +206,34 @@
         return $ambiente . '/' . $url;
     }
 
+    //Curso de PHP 8 Aula 033 Introdução aos Arrays
 
+    function dataAtual(): string {
+        $diaMes = date('d');
+        $diaSemana = date('w'); // numero do dia (da semana) não do mes
+        $mes = date('n') -1;
+        $ano = date('Y');
+
+        $nomesDiasSemanas = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira'];
+
+        $nomesMeses =[
+            'Janeiro',
+            'Fevereiro',
+            'Março',
+            'Abril',
+            'Maio',
+            'Junho',
+            'Julho',
+            'Agosto',
+            'Setembro',
+            'Outubro',
+            'Novembro',
+            'Dezembro'
+        ];
+
+        $dataFormatada = $nomesDiasSemanas[$diaSemana] . ', ' . $diaMes . ' de ' . $nomesMeses[$mes] . ' de ' . $ano;
+        return $dataFormatada;
+    }
 
     ?>
 

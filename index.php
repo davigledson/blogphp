@@ -167,6 +167,40 @@ var_dump(localhost());
 separadorLinha();
 
 echo url('davi');
+
+separadorLinha('Curso de PHP 8 Aula 033 Introdução aos Arrays');
+echo $_SERVER['HTTP_HOST'];
+separadorLinha();
+echo $_SERVER['SCRIPT_FILENAME'];
+separadorLinha();
+$meses = array( //pode "personalizar "indexes" 
+   'j' => 'janeiro',
+    'f'=> 'fevereiro',
+    'm' => 'março'
+); //declaração de array - pode deixa em uma linha ou varias, para organizar melhor
+$dias = [
+    
+    'segunda',
+    'terça',
+    'quarta'
+]; //outro tipo de declarar array
+var_dump($meses);
+separadorLinha();
+var_dump($dias);
+separadorLinha();
+echo $meses['j']; // chamando pelo index numérico
+separadorLinha();
+echo $meses[1];
+separadorLinha();
+
+foreach($meses as $chave => $valor){ //foreach - para percorrer os array
+    echo" $chave <br>";
+};
+separadorLinha();
+echo dataAtual();
+
+separadorLinha();
+echo saudacao() .' Hoje é '. dataAtual();
 ?>
 </body>
 </html>
