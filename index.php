@@ -212,6 +212,31 @@ echo slug("100 Melhores filmes") . '<hr>';
 echo slug("teste!@##$%¨,*/\|?;:");
 separadorLinha('Curso de PHP 8 Aula 035 Estrutura de Controle Switch');
 echo saudacao();
+
+separadorLinha('Curso de PHP 8 Aula 037 Estruturas de Repetição');
+//while
+$numero = 5;
+while ($numero <10){
+    echo $numero++;
+}
+separadorLinha();
+//for
+for($i = 0;$i <= 10; $i++){
+    echo $i;
+}
+separadorLinha();
+for($i = 1;$i <= 10; $i++){
+    echo ($i % 2 ? $i .' impar' : $i . ' par') . ' <br>';
+}
+separadorLinha();
+for($i = 1;$i <= 10; $i++){
+   echo $i . 'x' . $i . ' = ' . $i * $i  . ' <br>';
+}
+separadorLinha();
+$multiplicador = 5;
+for($i = 1;$i <= 10; $i++){
+   echo $i . 'x' . $multiplicador . ' = ' . $i * $multiplicador  . ' <br>';
+}
 ?>
 </body>
 </html>
