@@ -279,6 +279,10 @@ separadorLinha();
 
 var_dump(validarCpf($cpf3));
 separadorLinha();
+separadorLinha('Curso de PHP 8 Aula 039 Introdução as Classes');
+include('./sistema/Nucleo/Mensagem.php');
+$msg = new Mensagem(); // chamando a classe
+var_dump($msg)
 ?>
 </body>
 </html>
