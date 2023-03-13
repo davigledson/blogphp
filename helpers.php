@@ -270,6 +270,11 @@
     }
 
     //Curso de PHP 8 Aula 034 Slug URL Amigável
+    /**
+     * Gera uma url amigável
+     * @param string $string
+     * @return string slug
+     */
     function slug(string $string)
     {   
         $mapa['a'] ='ÀàÁáÃãÂâÇçÈèÉéÊêëÌìÍíÎîïÒòÓóÕõÔôÙùÚúÛû!@#$%&*()+={}[];:<>/\|,?¨ " \'';
@@ -288,8 +293,34 @@
     }
 
 
+    function validarCpf(string $cpf):bool{
+        $cpf = limparNumero($cpf); // função criada dentro de função, criada logo abaixo
 
+        //'/(\d)\1{10}/' expressão regula que diz que não aceita dígitos repetidos 
+        if(mb_strlen($cpf) != 11 or preg_match('/(\d)\1{10}/',$cpf)){
+            return false;
+        } //para validar cpf
+        for($t = 9; $t < 11; $t++){
+            for($d = 0, $c = 0; $c < $t; $c++){
+        
+               $d += $cpf[$c] * (($t + 1) - $c); 
+        
+            }
+            $d = ((10 * $d) % 11) % 10;
+            if($cpf[$c] != $d){
+                return false;
+            }
+            
+        }
 
+        return true;
+
+       
+    }
+function limparNumero(string $numero):string
+{
+    return preg_replace('/[^0-9]/','',$numero); // preg_replace()Execute uma pesquisa de expressão regular e substitua. - /[^0-9]/ - expressão regular que diz (Que não esteja no intervalo de 0 a 9.)
+}
     ?>
 
 

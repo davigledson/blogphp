@@ -237,6 +237,48 @@ $multiplicador = 5;
 for($i = 1;$i <= 10; $i++){
    echo $i . 'x' . $multiplicador . ' = ' . $i * $multiplicador  . ' <br>';
 }
+separadorLinha();
+$cpf = '16065710440';
+
+
+/*
+integrado a função validarCpf($cpf);
+
+for($t = 9; $t < 11; $t++){
+    for($d = 0, $c = 0; $c < $t; $c++){
+
+       ($d += $cpf[$c] * (($t + 1) - $c)); 
+
+    }
+    $d = ((10 * $d) % 11) % 10;
+    if($cpf[$c] != $d){
+        echo 'CPF Inválido';
+    }
+
+    else {
+        echo 'CPF Válido';
+    }
+
+    
+}
+
+
+*/
+
+
+separadorLinha('Curso de PHP 8 Aula 038 Introdução as Expressões Regulares');
+$cpf2 = '160.657.104-40';
+echo $limparNumero = preg_replace('/[^0-9]/','',$cpf2); // preg_replace()Execute uma pesquisa de expressão regular e substitua. - /[^0-9]/ - expressao regular que diz (Que não esteja no intervalo de 0 a 9.)
+separadorLinha();
+$cpf3 = '21111111111';
+var_dump(validarCpf($cpf));
+separadorLinha();
+
+var_dump(validarCpf($cpf2));
+separadorLinha();
+
+var_dump(validarCpf($cpf3));
+separadorLinha();
 ?>
 </body>
 </html>
