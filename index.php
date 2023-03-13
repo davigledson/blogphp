@@ -282,7 +282,11 @@ separadorLinha();
 separadorLinha('Curso de PHP 8 Aula 039 Introdução as Classes');
 include('./sistema/Nucleo/Mensagem.php');
 $msg = new Mensagem(); // chamando a classe
-var_dump($msg)
+var_dump($msg);
+separadorLinha('Curso de PHP 8 Aula 040 Introdução aos Atributos');
+echo $msg ->texto; // para acessa o atributo da classe 
+separadorLinha();
+echo $msg ->texto ='texto de mensagem' //atribuir um novo valor
 ?>
 </body>
 </html>
