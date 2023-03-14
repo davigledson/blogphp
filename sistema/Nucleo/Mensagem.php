@@ -1,3 +1,7 @@
+<?php 
+namespace sistema\Nucleo; // namespace tem que ser a primeira declaração do arquivo (MESMO)
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,11 +14,22 @@
 </head>
 
 <body>
-    <?php
+
+    <?php 
+    
+    
+    
+
     //Curso de PHP 8 Aula 039 Introdução as Classes
+    
     /**
+     * Classe Mensagem - responsável por exibir as mensagens do sistema
      * @author Davi Gledson <davigledson@outlook.com>
      */
+    
+   
+
+
     class Mensagem
     {
         private $texto = 'ola, sou um atributo privado dentro da classe'; // public significa que o atributo e publico e pode ser acessado fora da classe

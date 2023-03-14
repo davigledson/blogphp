@@ -284,13 +284,14 @@ separadorLinha();
 var_dump(validarCpf($cpf3));
 separadorLinha();
 separadorLinha('Curso de PHP 8 Aula 039 Introdução as Classes');
+use sistema\Nucleo\Mensagem; // Curso de PHP 8 Aula 044 Introdução aos Namespaces
 
 $msg = new Mensagem(); // chamando a classe
 var_dump($msg);
 separadorLinha('Curso de PHP 8 Aula 040 Introdução aos Atributos');
 //echo $msg ->texto; // para acessa o atributo da classe (o atributo tem que ser publico)
 separadorLinha();
-//echo $msg ->texto ='texto de mensagem' //atribuir um novo valor
+//echo $msg ->texto ='texto de mensagem'; //atribuir um novo valor
 separadorLinha('Curso de PHP 8 Aula 041 Introdução aos Métodos
 ');
 $msg2 = new Mensagem();
@@ -315,7 +316,14 @@ separadorLinha('Curso de PHP 8 Aula 043 Introdução aos Métodos Mágicos
 ');
 echo(new Mensagem())->alerta('mensagem de erro') ->renderizar(); // outra forma de encadeamento (mais utilizada)
 separadorLinha();
-echo(new Mensagem());
+
+echo(new \sistema\Nucleo\Mensagem)->alerta('texto de alerta'); // uma forma de chamar a classe por namespace
+separadorLinha();
+//use sistema\Nucleo\Mensagem; (DECLARADA ACIMA) //forma mais correta de chamar por namespace
+//mudar o namespace vai gerar conflitos com as chamadas anteriormente
+
+use sistema\Nucleo\Mensagem as msg; // pode dar apelidos as classes
+echo (new msg)->informa('pode dar apelidos ao namespace');
 ?>
 </body>
 
