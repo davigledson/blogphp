@@ -76,7 +76,18 @@
            $this->texto = $this-> filtrar($mensagem);
            return $this;
         }
+        //Curso de PHP 8 Aula 043 Introdução aos Métodos Mágicos
+        //Curso de PHP 8 Aula 043 Introdução aos Métodos Mágicos
+
+    public function __tostring() //método magico (para não precisar encadear  o método renderizar)
+    //Métodos mágicos são métodos especiais que sobrescrever o comportamento padrão do PHP quando certas operações são realizadas em um objeto.
+    {
+        return $this -> renderizar();
     }
+    }
+
+
+    
     ?>
 
 </body>

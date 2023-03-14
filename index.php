@@ -310,6 +310,12 @@ var_dump($msg2);
 separadorLinha();
 echo $msg2 ->informa('Mensagem de Informação') -> renderizar();
 var_dump($msg2);
+
+separadorLinha('Curso de PHP 8 Aula 043 Introdução aos Métodos Mágicos
+');
+echo(new Mensagem())->alerta('mensagem de erro') ->renderizar(); // outra forma de encadeamento (mais utilizada)
+separadorLinha();
+echo(new Mensagem());
 ?>
 </body>
 
