@@ -35,19 +35,21 @@
     
     
     require_once 'sistema/configuracao.php';
-    include_once 'helpers.php'; // não diferencia minusculas ou maiúsculas
+    include_once './sistema/Nucleo/helpers.php'; // não diferencia minusculas ou maiúsculas
+    //alterado na aula  Aula 045 Introdução aos Métodos Estáticos
     include('./sistema/Nucleo/Mensagem.php');
+    
     echo '<h1>arquivo index</h1>';
     echo '<hr>';
-    echo saudacao();
+    echo Helpers::saudacao();
     echo '<hr>';
-    echo saudacao();
+    echo Helpers::saudacao();
     echo '<hr>';
 
     $texto ='texto para resumir';
     //declare(strict_types = 1); 
     //declare(strict_types = 1) - faz com que todos os tipos de dados requisitados tenham que especificamente eles mesmo. exemplo o 50 abaixo, que na função requisita um tipo float
-    echo resumirTexto($texto,50,'texto');
+    echo Helpers::resumirTexto($texto,50,'texto');
 
     /*
 Curso de PHP 8 Aula 017 Tipos de Dados e Retorno
@@ -71,7 +73,7 @@ var_dump($nulo); echo '<hr>';
 //Curso de PHP 8 Aula 021 Funções dentro de Funções
 
 echo '<hr>';
-echo saudacao();
+echo Helpers::saudacao();
 echo '<hr>';
 
 
@@ -92,7 +94,7 @@ echo $ecorrencia = mb_strrpos($total,'d');
 //mb_strrpos() - permite encontrar a ultima ocorrência de um caractere ou texto  - em caso de não encontrado retorna um vazio
 
 echo '<hr>';
-echo resumirTexto($total, 20);
+echo Helpers::resumirTexto($total, 20);
 echo '<hr>';
 //Curso de PHP 8 Aula 022 Limpando TAGS
 $texto2 = '<h1>Texto</h1> <p>para</p> resumir';
@@ -116,12 +118,12 @@ echo $valor ? $valor : 0; //condicional ternaria (se o valor existir, recebe o v
 echo '<hr>';
 echo $valor ?: 0; //resumindo ainda mais 
 echo '<hr>';
-separadorLinha();
-echo 'R$ ' . formatarValor(20);
+Helpers::separadorLinha();
+echo 'R$ ' . Helpers::formatarValor(20);
 
-separadorLinha();
-echo formatarNumero(10000);
-separadorLinha();
+Helpers::separadorLinha();
+echo Helpers::formatarNumero(10000);
+Helpers::separadorLinha();
 
 //Curso de PHP 8 Aula 027 Definindo Fuso Horário Padrão
 
@@ -130,54 +132,54 @@ echo $data;
 
 //Curso de PHP 8 Aula 028 Criando Função Contar Tempo
 
-separadorLinha('Função Contar Tempo');
-echo contarTempo('2020-01-10 02:23:59'); //padrão americano
+Helpers::separadorLinha('Função Contar Tempo');
+echo Helpers::contarTempo('2020-01-10 02:23:59'); //padrão americano
 //Curso de PHP 8 Aula 029 Tipos de Filtros
 
-separadorLinha('Função validar email');
-if( validarEmail('davigledson@outlook.com')){
+Helpers::separadorLinha('Função validar email');
+if( Helpers::validarEmail('davigledson@outlook.com')){
     echo 'endereço de email válido';
 } else{
     echo 'E-mail inválido';
 }
 //modo de ver o tipo bool - echo var_dump(validarEmail('davigledson@outlook.com')); 
-separadorLinha('função validar url');
+Helpers::separadorLinha('função validar url');
 
-var_dump(validarUrl('https://www.youtube.com/watch?v=iTXf4cS4upk'));
-separadorLinha();
-if (validarUrl('https://www.youtube.com/watch?v=iTXf4cS4upk')){
+var_dump(Helpers::validarUrl('https://www.youtube.com/watch?v=iTXf4cS4upk'));
+Helpers::separadorLinha();
+if (Helpers::validarUrl('https://www.youtube.com/watch?v=iTXf4cS4upk')){
     echo 'endereço valido';
 } else {
     echo 'endereço invalido';
 }
 
 //Curso de PHP 8 Aula 030 É Melhor Criar ou Utilizar um Filtro
-separadorLinha('Função validar URL sem filtro');
+Helpers::separadorLinha('Função validar URL sem filtro');
 $url = 'https://a';
 
-echo var_dump(validarUrlSemFiltro($url));
-separadorLinha();
-echo var_dump(validarUrl($url));
+echo var_dump(Helpers::validarUrlSemFiltro($url));
+Helpers::separadorLinha();
+echo var_dump(Helpers::validarUrl($url));
 
-separadorLinha('Curso de PHP 8 Aula 031 Constantes');
+Helpers::separadorLinha('Curso de PHP 8 Aula 031 Constantes');
 echo SITE_NOME;
-separadorLinha();
+Helpers::separadorLinha();
 echo SITE_NOME2;
 
 //Curso de PHP 8 Aula 032 Informação do servidor e ambiente de execução
-separadorLinha('Curso de PHP 8 Aula 032 Informação do servidor e ambiente de execução
+Helpers::separadorLinha('Curso de PHP 8 Aula 032 Informação do servidor e ambiente de execução
 ');
 //var_dump($_SERVER); - dados do servidor
-var_dump(localhost());
-separadorLinha();
+var_dump(Helpers::localhost());
+Helpers::separadorLinha();
 
-echo url('davi');
+echo Helpers::url('davi');
 
-separadorLinha('Curso de PHP 8 Aula 033 Introdução aos Arrays');
+Helpers::separadorLinha('Curso de PHP 8 Aula 033 Introdução aos Arrays');
 echo $_SERVER['HTTP_HOST'];
-separadorLinha();
+Helpers::separadorLinha();
 echo $_SERVER['SCRIPT_FILENAME'];
-separadorLinha();
+Helpers::separadorLinha();
 $meses = array( //pode "personalizar "indexes" 
    'j' => 'janeiro',
     'f'=> 'fevereiro',
@@ -190,58 +192,58 @@ $dias = [
     'quarta'
 ]; //outro tipo de declarar array
 var_dump($meses);
-separadorLinha();
+Helpers::separadorLinha();
 var_dump($dias);
-separadorLinha();
+Helpers::separadorLinha();
 echo $meses['j']; // chamando pelo index numérico
-separadorLinha();
+Helpers::separadorLinha();
 
 
 foreach($meses as $chave => $valor){ //foreach - para percorrer os array
     echo" $chave <br>";
 };
-separadorLinha();
-echo dataAtual();
+Helpers::separadorLinha();
+echo Helpers::dataAtual();
 
-separadorLinha();
-echo saudacao() .' Hoje é '. dataAtual();
+Helpers::separadorLinha();
+echo Helpers::saudacao() .' Hoje é '. Helpers::dataAtual();
 
-separadorLinha('Curso de PHP 8 Aula 034 Slug URL Amigável');
-echo slug("Àdão          \" Negro\" - '2022'") . '<hr>';
-echo slug("Avatar                          2: O Caminho da Água") . '<hr>';
-echo slug("Não! Não Olhe") . '<hr>';
-echo slug("Sonic 2 - O Filme") . '<hr>';
-echo slug("NOVA SÉRIE NO DISNEY+!") . '<hr>';
-echo slug("100 Melhores filmes") . '<hr>';
-echo slug("teste!@##$%¨,*/\|?;:");
-separadorLinha('Curso de PHP 8 Aula 035 Estrutura de Controle Switch');
-echo saudacao();
+Helpers::separadorLinha('Curso de PHP 8 Aula 034 Slug URL Amigável');
+echo Helpers::slug("Àdão          \" Negro\" - '2022'") . '<hr>';
+echo Helpers::slug("Avatar                          2: O Caminho da Água") . '<hr>';
+echo Helpers::slug("Não! Não Olhe") . '<hr>';
+echo Helpers::slug("Sonic 2 - O Filme") . '<hr>';
+echo Helpers::slug("NOVA SÉRIE NO DISNEY+!") . '<hr>';
+echo Helpers::slug("100 Melhores filmes") . '<hr>';
+echo Helpers::slug("teste!@##$%¨,*/\|?;:");
+Helpers::separadorLinha('Curso de PHP 8 Aula 035 Estrutura de Controle Switch');
+echo Helpers::saudacao();
 
-separadorLinha('Curso de PHP 8 Aula 037 Estruturas de Repetição');
+Helpers::separadorLinha('Curso de PHP 8 Aula 037 Estruturas de Repetição');
 //while
 $numero = 5;
 while ($numero <10){
     echo $numero++;
 }
-separadorLinha();
+Helpers::separadorLinha();
 //for
 for($i = 0;$i <= 10; $i++){
     echo $i;
 }
-separadorLinha();
+Helpers::separadorLinha();
 for($i = 1;$i <= 10; $i++){
     echo ($i % 2 ? $i .' impar' : $i . ' par') . ' <br>';
 }
-separadorLinha();
+Helpers::separadorLinha();
 for($i = 1;$i <= 10; $i++){
    echo $i . 'x' . $i . ' = ' . $i * $i  . ' <br>';
 }
-separadorLinha();
+Helpers::separadorLinha();
 $multiplicador = 5;
 for($i = 1;$i <= 10; $i++){
    echo $i . 'x' . $multiplicador . ' = ' . $i * $multiplicador  . ' <br>';
 }
-separadorLinha();
+Helpers::separadorLinha();
 $cpf = '16065710440';
 
 
@@ -270,60 +272,63 @@ for($t = 9; $t < 11; $t++){
 */
 
 
-separadorLinha('Curso de PHP 8 Aula 038 Introdução as Expressões Regulares');
+Helpers::separadorLinha('Curso de PHP 8 Aula 038 Introdução as Expressões Regulares');
 $cpf2 = '160.657.104-40';
 echo $limparNumero = preg_replace('/[^0-9]/','',$cpf2); // preg_replace()Execute uma pesquisa de expressão regular e substitua. - /[^0-9]/ - expressao regular que diz (Que não esteja no intervalo de 0 a 9.)
-separadorLinha();
+Helpers::separadorLinha();
 $cpf3 = '21111111111';
-var_dump(validarCpf($cpf));
-separadorLinha();
+var_dump( Helpers::validarCpf($cpf));
+Helpers::separadorLinha();
 
-var_dump(validarCpf($cpf2));
-separadorLinha();
+var_dump( Helpers::validarCpf($cpf2));
+Helpers::separadorLinha();
 
-var_dump(validarCpf($cpf3));
-separadorLinha();
-separadorLinha('Curso de PHP 8 Aula 039 Introdução as Classes');
+var_dump( Helpers::validarCpf($cpf3));
+Helpers::separadorLinha();
+Helpers::separadorLinha('Curso de PHP 8 Aula 039 Introdução as Classes');
 use sistema\Nucleo\Mensagem; // Curso de PHP 8 Aula 044 Introdução aos Namespaces
 
 $msg = new Mensagem(); // chamando a classe
 var_dump($msg);
-separadorLinha('Curso de PHP 8 Aula 040 Introdução aos Atributos');
+Helpers::separadorLinha('Curso de PHP 8 Aula 040 Introdução aos Atributos');
 //echo $msg ->texto; // para acessa o atributo da classe (o atributo tem que ser publico)
-separadorLinha();
+Helpers::separadorLinha();
 //echo $msg ->texto ='texto de mensagem'; //atribuir um novo valor
-separadorLinha('Curso de PHP 8 Aula 041 Introdução aos Métodos
+Helpers::separadorLinha('Curso de PHP 8 Aula 041 Introdução aos Métodos
 ');
 $msg2 = new Mensagem();
 echo $msg2->renderizar();
-separadorLinha('Curso de PHP 8 Aula 042 Introdução ao Encadeamento de Métodos');
+Helpers::separadorLinha('Curso de PHP 8 Aula 042 Introdução ao Encadeamento de Métodos');
 echo $msg2 -> sucesso('Mensagem de sucesso') -> renderizar();//Encadeamento de Métodos
-separadorLinha();
+Helpers::separadorLinha();
 var_dump($msg2);
-separadorLinha();
+Helpers::separadorLinha();
 echo $msg2 -> erro('Mensagem de erro') -> renderizar();
-separadorLinha();
+Helpers::separadorLinha();
 var_dump($msg2);
 
-separadorLinha();
+Helpers::separadorLinha();
 echo $msg2 ->alerta('Mensagem de Alerta') -> renderizar();
 var_dump($msg2);
-separadorLinha();
+Helpers::separadorLinha();
 echo $msg2 ->informa('Mensagem de Informação') -> renderizar();
 var_dump($msg2);
 
-separadorLinha('Curso de PHP 8 Aula 043 Introdução aos Métodos Mágicos
+Helpers::separadorLinha('Curso de PHP 8 Aula 043 Introdução aos Métodos Mágicos
 ');
 echo(new Mensagem())->alerta('mensagem de erro') ->renderizar(); // outra forma de encadeamento (mais utilizada)
-separadorLinha();
+Helpers::separadorLinha();
 
 echo(new \sistema\Nucleo\Mensagem)->alerta('texto de alerta'); // uma forma de chamar a classe por namespace
-separadorLinha();
+Helpers::separadorLinha();
 //use sistema\Nucleo\Mensagem; (DECLARADA ACIMA) //forma mais correta de chamar por namespace
 //mudar o namespace vai gerar conflitos com as chamadas anteriormente
 
 use sistema\Nucleo\Mensagem as msg; // pode dar apelidos as classes
 echo (new msg)->informa('pode dar apelidos ao namespace');
+
+Helpers::separadorLinha('Curso de PHP 8 Aula 045 Introdução aos Métodos Estáticos');
+
 ?>
 </body>
 

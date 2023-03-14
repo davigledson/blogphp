@@ -10,10 +10,14 @@
 
 <body>
     <?php
+    //todos as funções modificadas em 045 Introdução aos Métodos Estáticos
+    // para chamar métodos dentro de outros utiliza-e o self::
+    // e o this e para objetos
+    class Helpers
+    {
+        
 
-    echo ' arquivo de funções';
-
-    function saudacao(): string // retorna o tipo de dado em retorno em string
+    public static function saudacao(): string // retorna o tipo de dado em retorno em string
 
     {
         date_default_timezone_set('America/Sao_Paulo'); // e preciso setar o timezone antes para a função "date"  pega o horário direito
@@ -78,7 +82,7 @@
      *      @param string $continue opcional - o que deve ser exibido ao final do resumo
      *      @return string texto resumido
      */
-    function resumirTexto(string $texto, int $limite, string $continue = '...'/*variável /parâmetro / argumento*/): string
+    public static function resumirTexto(string $texto, int $limite, string $continue = '...'/*variável /parâmetro / argumento*/): string
     {
         $textoLimpo = trim(strip_tags($texto));
 
@@ -107,7 +111,7 @@
      * @param float $valor
      * @return string
      */
-    function formatarValor(float $valor = null): string // o null atribuir o valor 0, caso o valor não exista
+    public static function formatarValor(float $valor = null): string // o null atribuir o valor 0, caso o valor não exista
     {
         return number_format(($valor ? $valor : 0), 2, ',', '.'); //number_format() - Formatar um número com milhares agrupados, pede o valor, a quantidade de casas flutuantes e os separadores
         //exemplo de função com operador ternário - essa mesma pode ser importante para banco de dados (um simples $valor = null, acho que resolveria - ainda não fiz a conexão com o banco de dados ainda)
@@ -117,13 +121,13 @@
      * @param int $numero
      * @return string
      */
-    function formatarNumero(int $numero = null): string
+    public static function formatarNumero(int $numero = null): string
     {
         return number_format($numero, 0, '.', '.');
     }
 
 
-    function separadorLinha(string $titulo = null)
+    public static function separadorLinha(string $titulo = null)
     {
         if ($titulo != null) {
             echo "<hr> <strong>$titulo</strong> <hr> ";
@@ -137,7 +141,7 @@
      * @param string $data
      * @return string 
      */
-    function contarTempo(string $data): string
+    public static function contarTempo(string $data): string
     {
         $agora = strtotime(date('Y-m-d H:i:s')); //date em formato americano
 
@@ -175,7 +179,7 @@
      * @param string $email
      * @return bool
      */
-    function validarEmail(string $email): bool
+    public static function validarEmail(string $email): bool
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL); //FILTER_VALIDATE_EMAIL - função interna para validar email
     }
@@ -184,7 +188,7 @@
      * @param string $url
      * @return bool
      */
-    function validarUrl(string $url): bool
+    public static function validarUrl(string $url): bool
     {
         return filter_var($url, FILTER_VALIDATE_URL); //filter_var - filtro na variável, por isso filter_var
     }
@@ -197,7 +201,7 @@
      * @param string $url
      * @return bool
      */
-    function validarUrlSemFiltro(string $url): bool
+    public static function validarUrlSemFiltro(string $url): bool
     {
         if (mb_strlen($url) < 10) {
             return false;
@@ -216,7 +220,7 @@
 
 //Curso de PHP 8 Aula 032 Informação do servidor e ambiente de execução
 
-    function localhost():bool{
+public static function localhost():bool{
         $servidor = filter_input(INPUT_SERVER,'SERVER_NAME');//filter_input() - Obtém uma variável externa específica por nome e, opcionalmente, a filtra. - INPUT_SERVER para obter variáveis do servidor
     
         if($servidor == 'localhost'){
@@ -230,7 +234,7 @@
      * @param string url parte da url ex .admin
      * @return string url completa
      */
-    function url(string $url):string{
+    public static function url(string $url):string{
         $servidor = filter_input(INPUT_SERVER,'SERVER_NAME');
         $ambiente = ($servidor == 'localhost' ? URL_DESENVOLVIMENTO : URL_PRODUCAO);
         //str_starts_with() - A função retorna {@see true} se o $haystack passado começa na string $needle ou {@see false} caso contrário.
@@ -242,7 +246,7 @@
 
     //Curso de PHP 8 Aula 033 Introdução aos Arrays
 
-    function dataAtual(): string {
+    public static function dataAtual(): string {
         $diaMes = date('d');
         $diaSemana = date('w'); // numero do dia (da semana) não do mes
         $mes = date('n') -1;
@@ -275,7 +279,7 @@
      * @param string $string
      * @return string slug
      */
-    function slug(string $string)
+    public static function slug(string $string)
     {   
         $mapa['a'] ='ÀàÁáÃãÂâÇçÈèÉéÊêëÌìÍíÎîïÒòÓóÕõÔôÙùÚúÛû!@#$%&*()+={}[];:<>/\|,?¨ " \'';
         $mapa['b'] = 'aaaaaaaacceeeeeeeiiiiiiioooooooouuuuuu                             ';
@@ -293,9 +297,9 @@
     }
 
 
-    function validarCpf(string $cpf):bool{
-        $cpf = limparNumero($cpf); // função criada dentro de função, criada logo abaixo
-
+    public static function validarCpf(string $cpf):bool{
+        $cpf = self::limparNumero($cpf); // função criada dentro de função, criada logo abaixo
+        //modificada em 045 Introdução aos Métodos Estáticos
         //'/(\d)\1{10}/' expressão regula que diz que não aceita dígitos repetidos 
         if(mb_strlen($cpf) != 11 or preg_match('/(\d)\1{10}/',$cpf)){
             return false;
@@ -317,10 +321,14 @@
 
        
     }
-function limparNumero(string $numero):string
+public static function limparNumero(string $numero):string
 {
     return preg_replace('/[^0-9]/','',$numero); // preg_replace()Execute uma pesquisa de expressão regular e substitua. - /[^0-9]/ - expressão regular que diz (Que não esteja no intervalo de 0 a 9.)
 }
+
+
+    }
+
     ?>
 
 
