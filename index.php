@@ -38,7 +38,9 @@
     include_once './sistema/Nucleo/helpers.php'; // não diferencia minusculas ou maiúsculas
     //alterado na aula  Aula 045 Introdução aos Métodos Estáticos
     include('./sistema/Nucleo/Mensagem.php');
+    include('./sistema/Nucleo/Controlador.php');
     use sistema\Nucleo\Helpers; //  namespace do helpers
+    use sistema\Nucleo\Controlador;
     
     echo '<h1>arquivo index</h1>';
     echo '<hr>';
@@ -329,7 +331,16 @@ use sistema\Nucleo\Mensagem as msg; // pode dar apelidos as classes
 echo (new msg)->informa('pode dar apelidos ao namespace');
 
 Helpers::separadorLinha('Curso de PHP 8 Aula 045 Introdução aos Métodos Estáticos');
+//modifiquei vários aquivos aqui 
 
+Helpers::separadorLinha('Curso de PHP 8 Aula 046 Introdução ao Método Mágico construct');
+$controlador = new Controlador('admin');
+Helpers::separadorLinha();
+var_dump($controlador);
+
+Helpers::separadorLinha();
+$controlador2 = new Controlador; // quando tem uma classe que não precisar de parâmetros pode escrever com ou sem os entre os parenteses
+var_dump($controlador2);
 ?>
 </body>
 
