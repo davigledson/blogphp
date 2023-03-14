@@ -1,14 +1,18 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog PHP</title>
+   
 </head>
+
 <body>
     <?php 
+    
 // Arquivo index responsável pela iniciação do projeto
 
 // include = incluir -A função include() do PHP tem como objetivo incluir (como o próprio nome diz) um arquivo dentro do outro quando acessado. Caso ocorra algum problema na inclusão deste, será apresentado um Warning (aviso) que não foi possível incluir o arquivo e continuará a exibição da página normalmente sem a inclusão do arquivo. A função include() aceita parâmetros via GET quando chama um arquivo. - 
@@ -32,6 +36,7 @@
     
     require_once 'sistema/configuracao.php';
     include_once 'helpers.php'; // não diferencia minusculas ou maiúsculas
+    include('./sistema/Nucleo/Mensagem.php');
     echo '<h1>arquivo index</h1>';
     echo '<hr>';
     echo saudacao();
@@ -190,8 +195,7 @@ var_dump($dias);
 separadorLinha();
 echo $meses['j']; // chamando pelo index numérico
 separadorLinha();
-echo $meses[1];
-separadorLinha();
+
 
 foreach($meses as $chave => $valor){ //foreach - para percorrer os array
     echo" $chave <br>";
@@ -280,13 +284,33 @@ separadorLinha();
 var_dump(validarCpf($cpf3));
 separadorLinha();
 separadorLinha('Curso de PHP 8 Aula 039 Introdução as Classes');
-include('./sistema/Nucleo/Mensagem.php');
+
 $msg = new Mensagem(); // chamando a classe
 var_dump($msg);
 separadorLinha('Curso de PHP 8 Aula 040 Introdução aos Atributos');
-echo $msg ->texto; // para acessa o atributo da classe 
+//echo $msg ->texto; // para acessa o atributo da classe (o atributo tem que ser publico)
 separadorLinha();
-echo $msg ->texto ='texto de mensagem' //atribuir um novo valor
+//echo $msg ->texto ='texto de mensagem' //atribuir um novo valor
+separadorLinha('Curso de PHP 8 Aula 041 Introdução aos Métodos
+');
+$msg2 = new Mensagem();
+echo $msg2->renderizar();
+separadorLinha('Curso de PHP 8 Aula 042 Introdução ao Encadeamento de Métodos');
+echo $msg2 -> sucesso('Mensagem de sucesso') -> renderizar();//Encadeamento de Métodos
+separadorLinha();
+var_dump($msg2);
+separadorLinha();
+echo $msg2 -> erro('Mensagem de erro') -> renderizar();
+separadorLinha();
+var_dump($msg2);
+
+separadorLinha();
+echo $msg2 ->alerta('Mensagem de Alerta') -> renderizar();
+var_dump($msg2);
+separadorLinha();
+echo $msg2 ->informa('Mensagem de Informação') -> renderizar();
+var_dump($msg2);
 ?>
 </body>
+
 </html>
