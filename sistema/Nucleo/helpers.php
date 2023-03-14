@@ -1,3 +1,7 @@
+<?php 
+namespace sistema\Nucleo;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -296,7 +300,11 @@ public static function localhost():bool{
         
     }
 
-
+    /**
+     * Válidar um numero de CPF
+     * @param string $cpf
+     * @return bool
+     */
     public static function validarCpf(string $cpf):bool{
         $cpf = self::limparNumero($cpf); // função criada dentro de função, criada logo abaixo
         //modificada em 045 Introdução aos Métodos Estáticos

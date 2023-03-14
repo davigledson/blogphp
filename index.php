@@ -38,6 +38,7 @@
     include_once './sistema/Nucleo/helpers.php'; // não diferencia minusculas ou maiúsculas
     //alterado na aula  Aula 045 Introdução aos Métodos Estáticos
     include('./sistema/Nucleo/Mensagem.php');
+    use sistema\Nucleo\Helpers; //  namespace do helpers
     
     echo '<h1>arquivo index</h1>';
     echo '<hr>';
