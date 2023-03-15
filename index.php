@@ -352,6 +352,7 @@ $controlador2 = new Controlador; // quando tem uma classe que não precisar de p
 var_dump($controlador2);
 Helpers::separadorLinha('Curso de PHP 8 Aula 049 Como Criar Arquivo Composer json');
 //com o composer não precisa utilizar mais o require nem o include
+Helpers::separadorLinha('Curso de PHP 8 Aula 050 Baixando Usando e Removendo Componente');
 
 ?>
 </body>
