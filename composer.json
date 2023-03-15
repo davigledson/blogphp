@@ -1,0 +1,29 @@
+{
+    "name": "unset/cursophp8",
+    "description": "Curso de PHP 8",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "sistema\\": "sistema/"
+        },
+        
+        "files": [
+        "sistema/configuracao.php"
+    ]
+
+    },
+    
+
+    "authors": [
+        {
+            "name": "Davi Gledson",
+            "email": "davigledson@outlook.com",
+            "homepage": "https://aindanaotenho.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.0"
+    }
+}

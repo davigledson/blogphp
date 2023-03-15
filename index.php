@@ -30,17 +30,26 @@
 */
 
 
+require './vendor/autoload.php';
+//require e includes retirado dps do composer
 
+//include('./sistema/Nucleo/Mensagem.php');
+//include('./sistema/Nucleo/Controlador.php');
+ //require_once 'sistema/configuracao.php'; 
+//include_once './sistema/Nucleo/helpers.php';
+
+use sistema\Nucleo\Helpers; //  namespace do helpers
+use sistema\Nucleo\Controlador;
+echo sistema\Nucleo\Helpers::saudacao();
+echo SITE_NOME;
+//lembra de dar um composer update no cmd para atualizar
 
     
-    
-    require_once 'sistema/configuracao.php';
-    include_once './sistema/Nucleo/helpers.php'; // não diferencia minusculas ou maiúsculas
+    //modificado em Curso de PHP 8 Aula 049 Como Criar Arquivo Composer json - depois da instalação do composer
+   
+    // não diferencia minusculas ou maiúsculas
     //alterado na aula  Aula 045 Introdução aos Métodos Estáticos
-    include('./sistema/Nucleo/Mensagem.php');
-    include('./sistema/Nucleo/Controlador.php');
-    use sistema\Nucleo\Helpers; //  namespace do helpers
-    use sistema\Nucleo\Controlador;
+    
     
     echo '<h1>arquivo index</h1>';
     echo '<hr>';
@@ -341,6 +350,9 @@ var_dump($controlador);
 Helpers::separadorLinha();
 $controlador2 = new Controlador; // quando tem uma classe que não precisar de parâmetros pode escrever com ou sem os entre os parenteses
 var_dump($controlador2);
+Helpers::separadorLinha('Curso de PHP 8 Aula 049 Como Criar Arquivo Composer json');
+//com o composer não precisa utilizar mais o require nem o include
+
 ?>
 </body>
 
